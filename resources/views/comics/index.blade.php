@@ -28,7 +28,7 @@
                                 <td>{{ $comic->series }}</td>
                                 <td>{{ $comic->sale_date }}</td>
                                 <td>
-                                    <a href="" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                                    <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                                 </td>
                             </tr>
                         @endforeach
