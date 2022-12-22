@@ -28,7 +28,6 @@
                             <button class="btn btn-danger" type="submit">Si</i></button>
                         </form>
                         <button class="btn btn-secondary reset-button">No</button>
-
                     </div>
                 </td>
             </tr>
