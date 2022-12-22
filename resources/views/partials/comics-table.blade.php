@@ -1,6 +1,6 @@
 <table class="table">
     <thead>
-      <tr class="text-center">
+      <tr>
         <th scope="col">Titolo</th>
         <th scope="col">Prezzo</th>
         <th scope="col">Serie</th>

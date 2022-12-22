@@ -6,13 +6,13 @@
         <nav class="navbar">
             <ul class="navbar-nav flex-row ">
                 <li class="nav-item me-4">
-                    <a href="/" class="nav-link text-light">Home</a>
+                    <a href="/" class="nav-link text-light {{ Route::currentRouteName() === 'home' ? 'active' : '' }}">Home</a>
                 </li>
                 <li class="nav-item me-4">
-                    <a href="{{ route('comics.index') }}" class="nav-link text-light">Lista dei fumetti</a>
+                    <a href="{{ route('comics.index') }}" class="nav-link text-light {{ Route::currentRouteName() === 'comics.index' ? 'active' : '' }}">Lista dei fumetti</a>
                 </li>
                 <li class="nav-item me-4">
-                    <a href="{{ route('comics.create') }}" class="nav-link text-light">Aggiungi un fumetto</a>
+                    <a href="{{ route('comics.create') }}" class="nav-link text-light {{ Route::currentRouteName() === 'comics.create' ? 'active' : '' }}">Aggiungi un fumetto</a>
                 </li>
             </ul>
         </nav>
