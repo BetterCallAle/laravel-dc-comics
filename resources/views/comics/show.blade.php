@@ -7,7 +7,15 @@
         <div class="container">
             <div class="section-heading d-flex align-items-center justify-content-between">
                 <h2 class="mb-4">{{ $comic->title }}</h2>
-                <a class="btn btn-secondary" href="{{ route('comics.edit', $comic->id) }}"><i class="fa-solid fa-pencil"></i></i></a>
+
+                <div class="heading-actions">
+                    <a class="btn btn-secondary" href="{{ route('comics.edit', $comic->id) }}"><i class="fa-solid fa-pencil"></i></i></a>
+                    <form class="d-inline" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger"><i class="fa-solid fa-x"></i></button>
+                    </form>
+                </div>
             </div>
 
             <div class="section-main">
