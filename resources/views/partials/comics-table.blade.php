@@ -1,6 +1,6 @@
 <table class="table">
     <thead>
-      <tr>
+      <tr class="text-center">
         <th scope="col">Titolo</th>
         <th scope="col">Prezzo</th>
         <th scope="col">Serie</th>
@@ -15,8 +15,9 @@
                 <td>{{ $comic->price }}</td>
                 <td>{{ $comic->series }}</td>
                 <td>{{ $comic->sale_date }}</td>
-                <td class="text-center">
+                <td>
                     <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
+                    <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i></i></a>
                 </td>
             </tr>
         @endforeach
