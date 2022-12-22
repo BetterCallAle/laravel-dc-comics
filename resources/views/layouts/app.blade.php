@@ -15,5 +15,7 @@
         @yield('content')
     </main>
     
+    {{-- Scritp --}}
+    @vite('resources/js/script.js')
 </body>
 </html>

@@ -18,12 +18,18 @@
                 <td>
                     <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-primary"><i class="fa-solid fa-eye"></i></a>
                     <a href="{{ route('comics.edit', $comic->id) }}" class="btn btn-secondary"><i class="fa-solid fa-pencil"></i></i></a>
+                    <button class="btn btn-danger delete-button"><i class="fa-solid fa-x"></i></button>
 
-                    <form class="d-inline" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <button class="btn btn-danger" type="submit"><i class="fa-solid fa-x"></i></button>
-                    </form>
+                    <div class="form-warning d-none">
+                        <h3>Sei sicuro di voler eliminare {{ $comic->title }}?</h3>
+                        <form class="d-inline" action="{{ route('comics.destroy', $comic->id) }}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button class="btn btn-danger" type="submit">Si</i></button>
+                        </form>
+                        <button class="btn btn-secondary reset-button">No</button>
+
+                    </div>
                 </td>
             </tr>
         @endforeach
