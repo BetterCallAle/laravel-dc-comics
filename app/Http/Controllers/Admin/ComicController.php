@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Comic;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class ComicController extends Controller
 {
@@ -37,9 +38,9 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $form_data = $this->validator($request->all());
         $comic = new Comic();
-        $comic->fill($data);
+        $comic->fill($form_data);
         $comic->save();
 
         return redirect()->route('comics.show', $comic->id);
@@ -77,7 +78,7 @@ class ComicController extends Controller
      */
     public function update(Request $request, Comic $comic)
     {
-        $data = $request->all();
+        $data = $this->validator($request->all());
         $comic->update($data);
         return redirect()->route('comics.show', $comic->id);
     }
@@ -92,5 +93,22 @@ class ComicController extends Controller
     {
         $comic->delete();
         return redirect()->route('comics.index');
+    }
+
+    private function validator($data){
+        $validator = Validator::make($data, [
+            'title' => 'required|max:150',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required|max:10',
+            'series' => 'required|max:150',
+            'sale_date' => 'required|date',
+            'type' => 'required|max:50'
+        ], [
+            'title.required' => 'Il titolo è obbligatorio',
+            'title.max' => 'Il titolo può contenere al massimo 150 caratteri'
+        ])->validate();
+
+        return $validator;
     }
 }
